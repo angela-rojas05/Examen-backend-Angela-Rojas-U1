@@ -1,0 +1,44 @@
+Preguntas · 10 puntos
+
+1. Explica dos diferencias entre una API REST y un servidor GraphQL. (2 pts)
+
+Respuesta: La primera diferencia clara son las rutas en como se visualizan los endpoints, en API REST es como hacer referencia a un 
+endpoint en especifico como toda la lista o elementos de esta que cumplen cierta condición, ejemplo las laptops disponibles, tambien que tipo de 
+respuesta HTTP solicitas, ya sea un GET o un POST por ejmplo. Ahora bien en GraphQL no "existe como tal un tipo de metodo" sería más bien 
+un solo endpoint pero solo cambiara lo que le pides.
+
+Otra diferencia es como regresan los datos, en REST se exige un formato establecido de respuesta, pero en GraphQL uno como usuario 
+decide que quiere que le devuelva, digamos que es un poco mas libre que se quiere obtener del sistema.
+
+2. Indica una situación en la que conviene usar REST y otra en la que conviene usar GraphQL. (2 pts)
+Respuesta: Se me ocurre como lo platicado en la primera clase, REST conviene más cuando el sistema en el que estamos trabajando es sencillo
+es decir, se piensa para un público delimitado, por ejemplo un inventario que solo se limita a una tienda en este caso, y cuando solo queremos 
+consultar cosas sencillas que son iguales. Ahora en el caso de GraphQL conviene si un sistema escala a algo muchisimo más grande, es decir cuando 
+tienes pensado que muchos usuarios hagan consultas de diferentes tipos, por ejemplo un sistema para varios lugares, siempre habrán consultas de 
+muchos tipos porque las diferentes personas no esperan ver siempre lo mismo, puedes pedir una consulta con solo lo que quieres que te salga.
+
+3. ¿Qué diferencia hay entre una imagen y un contenedor? ¿Qué papel cumple el Dockerfile en esa relación?
+(2 pts)
+Respuesta: Que una imagen es como un cascarón o plantilla que ya trae todos los elementos empaquetados para que el sistema funcione en cualquier ordenador
+las versiones, dependencias, modelos, etc... y el contenedor sera el lugar donde esta imagen va a levantarse o va a poder correr sin problemas 
+para evitar ese tipico errorcito de "en mi compu si funcionaba".
+
+Ahora hablando del Dockerfile, este será el encargado de indicar de que manera se va a levantar o construir la imagen, es decir indica de que manera y con que 
+elementos se va a construir el programa que deseas ejecutar.
+
+
+4. ¿Para qué sirve Docker Compose? En el mapeo 8000:8000, ¿qué representa el primer 8000 y qué
+representa el segundo? (2 pts)
+Respuesta: Sirve a diferencia del Dockerfile, este sirve para levantar ya como tal el sistema dentro del contenedor, en este caso de los ejercicios
+levanta la api y la base de datos y permite que haya comunicación para obtener los datos en las respuestas JSON.
+
+En el mapeo, el primer número es el puerto de mi computadora, y el segundo es el puerto dentro del contenedor donde esta la API. Gracias a eso puedo abrir 
+el localhost desde mi navegador y llegar a la API que corre dentro del contenedor.
+
+5. ¿Por qué las laptops del ejercicio 1 se guardan en MySQL y no en una lista de Python? ¿Qué identifica
+la llave primaria id? (2 pts)
+Respuesta: Porque una lista de Python vive en la memoria del programa, si detengo o reinicio la API, se pierde todo y los datos vuelven a los iniciales. 
+MySQL guarda los datos y permite la persistencia, así que las laptops, incluidas las que se crearon, siguen ahí después de reiniciar el programa.
+
+La llave primaria id identifica de forma única a cada laptop en la tabla, así que no puede haber dos registros con el mismo id, lanzaria un tipo de respuesta 400.
+en este caso el de duplicado o algun otro.
